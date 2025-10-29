@@ -1,0 +1,171 @@
+{
+  "name": "yep",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=너는 신문 기자야, 아래 기사 제목들을 모두 모아서 5개 항목으로 정리해줘, 영어는 한국어로 변역해줘.\n\n {{ $json.articles[0].author }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -176,
+        -32
+      ],
+      "id": "9926e0e0-f15d-49a9-8175-c1c8a955a881",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -160,
+        192
+      ],
+      "id": "d6ed004c-8fb3-4942-858c-185d8c7a54e5",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "AKTtsvs6aMoUOWUC",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "pouna5155@gmail.com",
+        "subject": "오늘의 뉴스",
+        "message": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        304,
+        -16
+      ],
+      "id": "5c642f6d-792d-4433-b530-52732c567632",
+      "name": "Send a message",
+      "webhookId": "26cddf47-57ee-4c58-9d5c-5093c184e26d",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "ZihrJxso0lyIk0gg",
+          "name": "Gmail account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "https://newsapi.org/v2/top-headlines",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "apiKey",
+              "value": "1f2bbc2984974611881c810af5cf91e2"
+            },
+            {
+              "name": "country",
+              "value": "us"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -384,
+        -16
+      ],
+      "id": "16986dce-2665-4106-87cd-e155baf06c68",
+      "name": "get news"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 7
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -608,
+        -16
+      ],
+      "id": "d4f094b9-3f5b-4547-a870-7bca5e2bfd00",
+      "name": "Schedule Trigger"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message": {
+      "main": [
+        []
+      ]
+    },
+    "get news": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "get news",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "c6a9664e-b6c2-461d-8b23-d9cb1f515600",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "79d4ffa1870a4ad59e67f42f09d45229874dca9a51778719766c62fc59eb674a"
+  },
+  "id": "34G2AiBIufxjOs3W",
+  "tags": []
+}

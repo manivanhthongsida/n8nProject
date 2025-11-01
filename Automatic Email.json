@@ -1,0 +1,146 @@
+{
+  "name": "Automatic Email",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "You are a helpful assistant. whenever user ask some questions from the chat bot you will need to answer and send the answewr to the email",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        144,
+        -208
+      ],
+      "id": "02b3f7fa-e0d2-4f0e-ae15-1d87954ec97d",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        192,
+        32
+      ],
+      "id": "9da7a8a8-b1b6-4868-be4f-6f836691cb0f",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -160,
+        -160
+      ],
+      "id": "67c153d0-e3a7-4b14-b005-a1efd9d949cc",
+      "name": "When chat message received",
+      "webhookId": "63868c6a-a67c-473d-a944-dda488263bc9"
+    },
+    {
+      "parameters": {
+        "sendTo": "pouna5155@gmail.com",
+        "subject": "Automation email sendding system - Test n8n 1st project",
+        "emailType": "text",
+        "message": "Hello",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        496,
+        -192
+      ],
+      "id": "f76a617b-745b-49ff-8d34-ef91ee15ed26",
+      "name": "Send a message",
+      "webhookId": "d98391e4-217f-4fce-8474-17c0916c23ef",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "G1i9Z67KXKjvBZG8",
+          "name": "Gmail account 5"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        16,
+        0
+      ],
+      "id": "51c23aeb-5908-4725-94e3-ffb4e0f3d7d5",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "AKTtsvs6aMoUOWUC",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "17d66741-fae7-4991-970f-8a6c98b026dc",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "79d4ffa1870a4ad59e67f42f09d45229874dca9a51778719766c62fc59eb674a"
+  },
+  "id": "gfpbzxE4Wh7Dspp4",
+  "tags": []
+}

@@ -1,0 +1,435 @@
+{
+  "name": "2ndProject",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json['음식에 대한 후기'] }}",
+        "hasOutputParser": true,
+        "options": {
+          "systemMessage": "you are a helpful assistant."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        32,
+        -64
+      ],
+      "id": "33924676-f5f8-4b59-8dab-48beffa45bc4",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        0,
+        160
+      ],
+      "id": "4759b332-37ee-4cfe-ba97-dc2569f2fbfb",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "AKTtsvs6aMoUOWUC",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formTitle": "불고기 식당 후기",
+        "formDescription": "맛에 대한 후기",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "이름",
+              "placeholder": "이름을 적어주세요",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "음식에 대한 후기",
+              "placeholder": "음식에 대한 후기 적어주세요",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.3,
+      "position": [
+        -304,
+        -208
+      ],
+      "id": "0348c4d9-90be-4d54-b846-60d8fdf2648a",
+      "name": "On form submission",
+      "webhookId": "decda6c4-b0f5-403a-9092-d2163f4265a9"
+    },
+    {
+      "parameters": {
+        "schemaType": "manual",
+        "inputSchema": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"result\": {\n      \"type\": \"string\",\n      \"enum\": [\"만족\", \"불만족\"]\n    }\n  },\n  \"required\": [\"result\"]\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        240,
+        144
+      ],
+      "id": "a552fd81-2fa3-4f5c-b2ae-3fadf5f13e1d",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        416,
+        -192
+      ],
+      "id": "4930fd62-cfed-4f32-bc7b-2597dd790c8f",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.output.result }}",
+                    "rightValue": "=만족",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "c62bce09-de45-4aef-aa0e-f898622a65ed"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "만족"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "6717ccbc-cfaa-493b-b5f6-b26dfdbe5149",
+                    "leftValue": "={{ $json.output.result }}",
+                    "rightValue": "불만족",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "불만족"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.3,
+      "position": [
+        624,
+        -160
+      ],
+      "id": "816c683b-3d2b-4ad7-96d8-0d68280e86e5",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "887f6ed2-fd23-46d0-847b-a1be7da7979f",
+              "name": "이름",
+              "value": "={{ $json['이름'] }}",
+              "type": "string"
+            },
+            {
+              "id": "e107ddc6-52c5-4688-9e6d-cf8ca5806162",
+              "name": "음식 후기",
+              "value": "={{ $json['음식에 대한 후기'] }}",
+              "type": "string"
+            },
+            {
+              "id": "651c2299-3490-44a8-ae42-30724c847dd5",
+              "name": "만족도",
+              "value": "={{ $json.output.result }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        832,
+        -304
+      ],
+      "id": "02eb53e0-d7e2-499d-80ab-e1618882f680",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "887f6ed2-fd23-46d0-847b-a1be7da7979f",
+              "name": "이름",
+              "value": "={{ $json['이름'] }}",
+              "type": "string"
+            },
+            {
+              "id": "e107ddc6-52c5-4688-9e6d-cf8ca5806162",
+              "name": "음식 후기",
+              "value": "={{ $json['음식에 대한 후기'] }}",
+              "type": "string"
+            },
+            {
+              "id": "651c2299-3490-44a8-ae42-30724c847dd5",
+              "name": "만족도",
+              "value": "={{ $json.output.result }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        864,
+        -112
+      ],
+      "id": "51346f58-0fd4-4ee4-9b78-068df0575989",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1izgCzjQ77jdCKw8ncfv3WYIcN0QYowhfHw_wS0jN0Kw",
+          "mode": "list",
+          "cachedResultName": "불고기식당후기",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1izgCzjQ77jdCKw8ncfv3WYIcN0QYowhfHw_wS0jN0Kw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "만족",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1izgCzjQ77jdCKw8ncfv3WYIcN0QYowhfHw_wS0jN0Kw/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1040,
+        -304
+      ],
+      "id": "f1fd25ac-a831-4e58-a709-f700a642ec45",
+      "name": "Append or update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "RF2x0pHVd0r470PB",
+          "name": "Google Sheets account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1izgCzjQ77jdCKw8ncfv3WYIcN0QYowhfHw_wS0jN0Kw",
+          "mode": "list",
+          "cachedResultName": "불고기식당후기",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1izgCzjQ77jdCKw8ncfv3WYIcN0QYowhfHw_wS0jN0Kw/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1321418998,
+          "mode": "list",
+          "cachedResultName": "불만족",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1izgCzjQ77jdCKw8ncfv3WYIcN0QYowhfHw_wS0jN0Kw/edit#gid=1321418998"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1072,
+        -96
+      ],
+      "id": "273b76dc-1f8b-46e0-a198-5457d8e9ecf5",
+      "name": "Append or update row in sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "RF2x0pHVd0r470PB",
+          "name": "Google Sheets account 3"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Append or update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Append or update row in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "4d585085-e255-476e-8507-9bfb553728ec",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "79d4ffa1870a4ad59e67f42f09d45229874dca9a51778719766c62fc59eb674a"
+  },
+  "id": "LcCOQNU2eZI6GfWu",
+  "tags": []
+}

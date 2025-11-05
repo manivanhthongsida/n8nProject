@@ -1,0 +1,1535 @@
+{
+  "name": "kbu chatbot2",
+  "nodes": [
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "=넌 경복대학교의 교칙 및 학칙을 학습한 Vector Store이다.",
+        "memoryKey": {
+          "__rl": true,
+          "mode": "list",
+          "value": "vector_store_key"
+        },
+        "topK": 400
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.3,
+      "position": [
+        -3840,
+        832
+      ],
+      "id": "e6015238-e17c-4073-900d-7d0d1a4a33d4",
+      "name": "Simple Vector Store1"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -3840,
+        1072
+      ],
+      "id": "10693ca0-687a-491b-b723-fe39f9b638e5",
+      "name": "Embeddings Google Gemini1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "OZJ0VjotyGIQE86e",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -3936,
+        784
+      ],
+      "id": "9da68a0f-fe0b-4005-b079-4d1dae5b86c4",
+      "name": "Google Gemini Chat Model6",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "OZJ0VjotyGIQE86e",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -3936,
+        208
+      ],
+      "id": "9279993a-6b60-4c43-928a-2fabb5e17666",
+      "name": "Google Gemini Chat Model8",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "OZJ0VjotyGIQE86e",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -3840,
+        512
+      ],
+      "id": "9c7feeb5-a67b-4852-bf4f-f2fbff5625bb",
+      "name": "Embeddings Google Gemini2",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "OZJ0VjotyGIQE86e",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "memoryKey": {
+          "__rl": true,
+          "value": "vector_store_key",
+          "mode": "list",
+          "cachedResultName": "vector_store_key"
+        },
+        "embeddingBatchSize": 400,
+        "clearStore": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.3,
+      "position": [
+        -3728,
+        400
+      ],
+      "id": "3075c136-526e-4acb-afc2-f98ba2eb25d2",
+      "name": "Simple Vector Store5"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1.1,
+      "position": [
+        -3664,
+        592
+      ],
+      "id": "e0a8767e-86e8-489e-9e3b-78abfaa29622",
+      "name": "Default Data Loader"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "=넌 경복대학교 학사 일정을 학습한 Vector Store이다.\n",
+        "memoryKey": {
+          "__rl": true,
+          "mode": "list",
+          "value": "vector_store_key"
+        },
+        "topK": 400
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.3,
+      "position": [
+        -3840,
+        288
+      ],
+      "id": "d8acd00d-2afe-459f-bc4f-d1b2402b609e",
+      "name": "Simple Vector Store2"
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "triggerOn": "specificFolder",
+        "folderToWatch": {
+          "__rl": true,
+          "value": "1g-u8Q-W_urRrmyRFtTpRhUePwCpCa0m4",
+          "mode": "list",
+          "cachedResultName": "School Regulations",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1g-u8Q-W_urRrmyRFtTpRhUePwCpCa0m4"
+        },
+        "event": "watchFolderUpdated"
+      },
+      "type": "n8n-nodes-base.googleDriveTrigger",
+      "typeVersion": 1,
+      "position": [
+        -4160,
+        960
+      ],
+      "id": "b40d86e9-0437-4441-b6d7-f4ba567eb36d",
+      "name": "Google Drive Trigger1",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "FeMM9hJgOMRheaVP",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "1iGi-8304h7uGux7yCXhTLIfz2hOq2pcX",
+          "mode": "list",
+          "cachedResultName": "경복대학교_학칙.csv",
+          "cachedResultUrl": "https://drive.google.com/file/d/1iGi-8304h7uGux7yCXhTLIfz2hOq2pcX/view?usp=drivesdk"
+        },
+        "options": {
+          "fileName": "data"
+        }
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -3936,
+        960
+      ],
+      "id": "7189e0b1-917b-4bac-8263-906ba42f4965",
+      "name": "Download file1",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "FeMM9hJgOMRheaVP",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "memoryKey": {
+          "__rl": true,
+          "value": "vector_store_key",
+          "mode": "list",
+          "cachedResultName": "vector_store_key"
+        },
+        "embeddingBatchSize": 400,
+        "clearStore": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.3,
+      "position": [
+        -3616,
+        960
+      ],
+      "id": "76de42af-e117-40cc-bb5d-124c93e19ee4",
+      "name": "Simple Vector Store13"
+    },
+    {
+      "parameters": {
+        "dataType": "binary",
+        "loader": "csvLoader",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1.1,
+      "position": [
+        -3552,
+        1168
+      ],
+      "id": "5429fbad-9432-4bec-9820-8c33edf93485",
+      "name": "Default Data Loader1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -4816,
+        448
+      ],
+      "id": "0e2464d0-0da6-45a6-9012-555a3f68586f",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "OZJ0VjotyGIQE86e",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -3952,
+        -80
+      ],
+      "id": "0a0ed581-194d-449c-8215-51b0d8f84561",
+      "name": "Google Gemini Chat Model9",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "OZJ0VjotyGIQE86e",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.output.value }}",
+                    "rightValue": "민원",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    },
+                    "id": "4c647a8c-a3aa-451e-b4dd-1cbebb66eb42"
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "47ac6b5e-ffa0-4356-b5dd-fb486e6811b9",
+                    "leftValue": "={{ $json.output.value }}",
+                    "rightValue": "학사일정",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "863f1ac0-70ed-4053-9609-a4d9625810e3",
+                    "leftValue": "={{ $json.output.value }}",
+                    "rightValue": "교칙",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f5ef495b-cf44-4176-aaa7-e60959e33100",
+                    "leftValue": "={{ $json.output.value }}",
+                    "rightValue": "공지사항",
+                    "operator": {
+                      "type": "string",
+                      "operation": "contains"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -4464,
+        48
+      ],
+      "id": "18a270a2-01c9-4dfb-b2c5-ddd3dd4a15db",
+      "name": "Switch",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.Name }}{{ $json.Department }}{{ $json.Detail }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=You are the creator responsible for generating Kyungbok University complaint submission forms. Your role is to produce the values that will fill the placeholders (<< >>) used in the complaint form template and organize them into a key–value JSON object. You do not write the entire document; you must output only the exact values that go into the placeholders. The output format must use the template’s placeholder names exactly as the keys, as in the example:\n\nExample:\n{\n\"Name\": \"\",\n\"Department\": \"\",\n\"detail\": \"\"\n}\n\nYou must strictly follow these rules:\n\n1. The name, affiliation, complaint content, and date must be written exactly as received.\n2. If the complaint content is long, insert line breaks (\\n) for readability at each period (.).\n\nThe output must be in JSON format only, and must not include explanatory sentences or any other text.\n"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -3952,
+        -272
+      ],
+      "id": "64add9e3-efc2-4bbb-9b0a-49219cb672e7",
+      "name": "ComplaintFormFiller",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "operation": "copy",
+        "fileId": {
+          "__rl": true,
+          "value": "17xZhKwfxpVSls-tuLC7lYzKiQqvqzT1x3WLvugzoeUg",
+          "mode": "list",
+          "cachedResultName": "민원_신청서_템플릿",
+          "cachedResultUrl": "https://docs.google.com/document/d/17xZhKwfxpVSls-tuLC7lYzKiQqvqzT1x3WLvugzoeUg/edit?usp=drivesdk"
+        },
+        "name": "=[민원]_[{{ $('On form submission').item.json.Department }}_{{ $('On form submission').item.json.Name }}]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -3632,
+        -272
+      ],
+      "id": "1f8743de-28f6-460d-8051-6867fc760192",
+      "name": "Copy file",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "FeMM9hJgOMRheaVP",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $json.id }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "replaceAll",
+              "text": "<<Name>>",
+              "replaceText": "={{ $('On form submission').item.json.Name }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "<<Department>>",
+              "replaceText": "={{ $('On form submission').item.json.Department }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "<<Details>>",
+              "replaceText": "={{ $('On form submission').item.json.Detail }}",
+              "matchCase": true
+            },
+            {
+              "action": "replaceAll",
+              "text": "<<Date>>",
+              "replaceText": "={{ $('On form submission').item.json.submittedAt }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        -3488,
+        -272
+      ],
+      "id": "676e150b-3865-4db1-ad93-2aa449f82d34",
+      "name": "Update a document",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "opnPUufoLGqpPYSA",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"chat\" : \"{{ $json.chatInput }}\",\n  \"value\": \"\"\n}",
+        "autoFix": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        -4736,
+        304
+      ],
+      "id": "58e7564d-6ea9-49cb-8f7a-0c04e1e51f4a",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "public": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -5024,
+        80
+      ],
+      "id": "8f0ecfc3-727e-4f2b-aa86-968e88c6b429",
+      "name": "When chat message received",
+      "webhookId": "61446b74-ef74-4de4-a733-71e35fa65794",
+      "notesInFlow": false
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -4544,
+        1488
+      ],
+      "id": "5093a9e1-a040-4d9d-b2d8-e3f4c83d9341",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "/**\n * n8n Code node\n * - KBU MN069 1~5페이지 파싱\n * - 출력: 각 아이템을 단일 JSON {\"공지사항\",\"URL\",\"datetime\"}로 직렬화하여 CONTENT 필드에 담아 반환\n * - 다음 노드: Google Sheets → Clear(A1:A) → Append (컬럼: CONTENT 1개)\n */\n\nconst BASE_URL = 'https://www.kbu.ac.kr/kor/CMS/Board/Board.do?mCode=MN069';\nconst MAX_PAGES = 10;\n\n// 정규화 URL 구성 요소\nconst CANON_BASE   = 'https://www.kbu.ac.kr/kor/CMS/Board/Board.do';\nconst CANON_MCODE  = 'MN069';\nconst CANON_PAGE   = '1';\nconst CANON_MODE   = 'view';\nconst CANON_MGRSEQ = '38';\n\n// 유틸\nconst S = (x) => String(x ?? '');\nconst strip = (html) => S(html).replace(/<[^>]*>/g, ' ').replace(/\\s+/g, ' ').trim();\n\n// n8n httpRequest\nasync function getPageHtml(page) {\n  const url = BASE_URL;\n  const qs = { robot: 'Y', page: String(page) };\n  const res = await this.helpers.httpRequest({\n    method: 'GET',\n    url,\n    qs,\n    headers: { 'User-Agent': 'n8n-vanilla-js-scraper' },\n    returnFullResponse: false,\n  });\n  return res;\n}\n\n// board_seq 추출\nfunction extractBoardSeq(href) {\n  const m = S(href).match(/[?&]board_seq=(\\d+)/);\n  return m ? m[1] : '';\n}\n\n// 정규화 URL 생성 (URLSearchParams 미사용 버전)\nfunction makeCanonicalUrl(boardSeq) {\n  if (!boardSeq) return '';\n  const pairs = [\n    ['robot', 'Y'],\n    ['mCode', CANON_MCODE],\n    ['page', CANON_PAGE],\n    ['mode', CANON_MODE],\n    ['mgr_seq', CANON_MGRSEQ],\n    ['board_seq', boardSeq],\n  ];\n  const qs = pairs.map(([k, v]) => k + '=' + encodeURIComponent(String(v))).join('&');\n  return CANON_BASE + '?' + qs;\n}\n\n// 테이블형 파싱 → [{NOTICE, URL, DATETIME}]\nfunction parseTable(html) {\n  const out = [];\n  const tbodyMatch = html.match(\n    /<table[^>]*class=[\"'][^\"']*bdListTbl[^\"']*[\"'][\\s\\S]*?<tbody[^>]*>([\\s\\S]*?)<\\/tbody>/i\n  );\n  if (!tbodyMatch) return out;\n  const tbody = tbodyMatch[1];\n\n  const trRe = /<tr[^>]*>([\\s\\S]*?)<\\/tr>/gi;\n  let tr;\n  while ((tr = trRe.exec(tbody)) !== null) {\n    const tds = [];\n    const tdRe = /<td[^>]*>([\\s\\S]*?)<\\/td>/gi;\n    let td;\n    while ((td = tdRe.exec(tr[1])) !== null) tds.push(td[1]);\n    if (tds.length < 5) continue;\n\n    let aCell, dateCell;\n    if (tds.length >= 6) { aCell = tds[2]; dateCell = tds[4]; }\n    else { aCell = tds[1]; dateCell = tds[3]; }\n\n    const aMatch = aCell.match(/<a[^>]*href=[\"']([^\"']+)[\"'][^>]*>([\\s\\S]*?)<\\/a>/i);\n    if (!aMatch) continue;\n\n    const rawHref = aMatch[1];\n    const title   = strip(aMatch[2]);\n\n    const dateText = strip(dateCell).replace(/\\./g, '-').trim();\n    const dateIso  = /^\\d{4}-\\d{2}-\\d{2}$/.test(dateText) ? dateText : '';\n\n    const boardSeq = extractBoardSeq(rawHref);\n    const canonUrl = makeCanonicalUrl(boardSeq);\n\n    out.push({\n      NOTICE: title,\n      URL: canonUrl || '',\n      DATETIME: dateIso,\n    });\n  }\n  return out;\n}\n\nasync function main() {\n  const rows = [];\n  for (let page = 1; page <= MAX_PAGES; page++) {\n    const html = await getPageHtml.call(this, page);\n    if (!html) {\n      console.log(`[WARN] 페이지 ${page}: 응답 없음`);\n      continue;\n    }\n    const items = parseTable(html);\n    console.log(`[INFO] 페이지 ${page}: ${items.length}건`);\n    for (let i = 0; i < items.length; i++) {\n      const it = items[i];\n      console.log(`  [${page}-${i + 1}] ${it.DATETIME} | ${it.NOTICE} | ${it.URL}`);\n      // CONTENT 단일 필드에 JSON 문자열로 넣기 (키: 공지사항/URL/datetime)\n      const contentJson = JSON.stringify({\n        공지사항: it.NOTICE,\n        URL: it.URL,\n        datetime: it.DATETIME,\n      });\n      rows.push({ json: { CONTENT: contentJson } });\n    }\n  }\n  console.log(`[INFO] 총 수집: ${rows.length}건`);\n  return rows;\n}\n\nreturn await main();\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -4240,
+        1488
+      ],
+      "id": "6f40057c-e662-437d-8cd6-89c61e8fc9dd",
+      "name": "파싱"
+    },
+    {
+      "parameters": {
+        "operation": "clear",
+        "documentId": {
+          "__rl": true,
+          "value": "1OK_84WFlzgSgNMMDGU4yTmyfDzXsmekEA-B2QNUSC5k",
+          "mode": "list",
+          "cachedResultName": "KBU소식",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1OK_84WFlzgSgNMMDGU4yTmyfDzXsmekEA-B2QNUSC5k/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "시트1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1OK_84WFlzgSgNMMDGU4yTmyfDzXsmekEA-B2QNUSC5k/edit#gid=0"
+        },
+        "keepFirstRow": true
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -4384,
+        1488
+      ],
+      "id": "abf0c379-5b9b-4c27-a107-c3e41bc5e5af",
+      "name": "Clear sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "RZTCOtmd9genKgrw",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1OK_84WFlzgSgNMMDGU4yTmyfDzXsmekEA-B2QNUSC5k",
+          "mode": "list",
+          "cachedResultName": "KBU소식",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1OK_84WFlzgSgNMMDGU4yTmyfDzXsmekEA-B2QNUSC5k/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "시트1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1OK_84WFlzgSgNMMDGU4yTmyfDzXsmekEA-B2QNUSC5k/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "공지사항",
+              "displayName": "공지사항",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "URL",
+              "displayName": "URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "datetime",
+              "displayName": "datetime",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -4096,
+        1488
+      ],
+      "id": "68888817-31c9-4e25-b41b-ccb7076b3787",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "RZTCOtmd9genKgrw",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -3936,
+        1312
+      ],
+      "id": "5366e372-c2f4-4c8d-87b0-c12d89b5fcb5",
+      "name": "Google Gemini Chat Model11",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "OZJ0VjotyGIQE86e",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -3840,
+        1616
+      ],
+      "id": "673411bd-b76a-48eb-9f50-48e7dced3766",
+      "name": "Embeddings Google Gemini",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "OZJ0VjotyGIQE86e",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "memoryKey": {
+          "__rl": true,
+          "value": "vector_store_key",
+          "mode": "list",
+          "cachedResultName": "vector_store_key"
+        },
+        "embeddingBatchSize": 400,
+        "clearStore": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.3,
+      "position": [
+        -3632,
+        1488
+      ],
+      "id": "379a6ffd-6153-402c-8a50-7a94a6bd62bc",
+      "name": "Simple Vector Store"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1.1,
+      "position": [
+        -3568,
+        1728
+      ],
+      "id": "1395e43f-1ad0-4cc1-8136-2af98c288d30",
+      "name": "Default Data Loader2"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "=넌 경복대학교 학사 일정을 학습한 Vector Store이다.\n",
+        "memoryKey": {
+          "__rl": true,
+          "value": "vector_store_key",
+          "mode": "list",
+          "cachedResultName": "vector_store_key"
+        },
+        "topK": 400
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
+      "typeVersion": 1.3,
+      "position": [
+        -3840,
+        1392
+      ],
+      "id": "f39d7a95-95a1-42c9-a4f7-5b2c74bd87bb",
+      "name": "Simple Vector Store3"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -4416,
+        400
+      ],
+      "id": "b204261b-7b15-4111-a8ed-3f6624dcdc92",
+      "name": "Schedule Trigger1"
+    },
+    {
+      "parameters": {
+        "jsCode": "/**\n * n8n Code node\n * - 학사일정 HTML(여러 달 블록 포함)에서 [이름, 기간] 추출\n * - 출력: CONTENT 단일 컬럼에 \"[학사일정, yyyy-MM-dd ~ yyyy-MM-dd]\" 문자열\n * - 다음 노드: Google Sheets → Clear(A1:A) → Append (컬럼: CONTENT 1개)\n */\n\nconst CAL_URL='https://www.kbu.ac.kr/kor/CMS/ScheduleMgr/YearList.do?mCode=MN083';\n\n// ───────── 유틸 ─────────\nconst S = (x) => String(x ?? '');\nconst strip = (html) => S(html).replace(/<[^>]*>/g, ' ').replace(/\\s+/g, ' ').trim();\nconst pad2 = (n) => (n < 10 ? '0' + n : '' + n);\nconst toISO = (y, m, d) => `${y}-${pad2(m)}-${pad2(d)}`;\n\n// 날짜 문자열 파싱: \"MM. DD(요일) ∼ MM. DD(요일)\" 또는 \"MM. DD(요일)\"\nfunction parseDateRange(text, yearFromSection) {\n  const t = S(text).replace(/\\s+/g, ' ').trim();\n\n  // 범위 (∼ 또는 ~)\n  let m = t.match(/(\\d{2})\\.\\s*(\\d{2})\\s*\\([^)]+\\)\\s*[~∼]\\s*(\\d{2})\\.\\s*(\\d{2})\\s*\\([^)]+\\)/);\n  if (m) {\n    const sm = parseInt(m[1], 10), sd = parseInt(m[2], 10);\n    const em = parseInt(m[3], 10), ed = parseInt(m[4], 10);\n    const ys = yearFromSection;\n    const ye = (em < sm) ? (ys + 1) : ys; // 연도 넘어가는 경우(12→01)\n    return { start: toISO(ys, sm, sd), end: toISO(ye, em, ed) };\n  }\n\n  // 단일 날짜\n  m = t.match(/(\\d{2})\\.\\s*(\\d{2})\\s*\\([^)]+\\)/);\n  if (m) {\n    const sm = parseInt(m[1], 10), sd = parseInt(m[2], 10);\n    const ys = yearFromSection;\n    const iso = toISO(ys, sm, sd);\n    return { start: iso, end: iso };\n  }\n\n  // 파싱 실패\n  return { start: '', end: '' };\n}\n\n// HTML 가져오기(없으면 CAL_URL에서 GET)\nasync function fetchHtmlIfNeeded() {\n  const inlineHtml = S(($json && ($json.HTML ?? $json.html)) || '');\n  if (inlineHtml) return inlineHtml;\n  if (!CAL_URL || CAL_URL.includes('<<')) {\n    throw new Error('HTML 입력이 없고 CAL_URL이 설정되지 않았습니다.');\n  }\n  const res = await this.helpers.httpRequest({\n    method: 'GET',\n    url: CAL_URL,\n    headers: { 'User-Agent': 'n8n-vanilla-js-scraper' },\n    returnFullResponse: false,\n  });\n  return res;\n}\n\n// 메인 파서\nfunction parseAcademic(html) {\n  const rows = [];\n\n  // 월 블록 단위로 분리\n  const parts = html.split(/<div class=\"sch-monlist-wr\">/g).slice(1);\n\n  for (const part of parts) {\n    // 섹션 연도 추출: <h4 class=\"cal-month\"><span>2025. 01</span></h4>\n    const ym = part.match(/class=\"cal-month\"><span>\\s*(\\d{4})\\.\\s*\\d{2}\\s*<\\/span>/);\n    const year = ym ? parseInt(ym[1], 10) : new Date().getFullYear();\n\n    // 상세 일정 li 추출\n    const liRe = /<li[^>]*class=[\"']daily-li[\"'][^>]*>([\\s\\S]*?)<\\/li>/g;\n    let li;\n    while ((li = liRe.exec(part)) !== null) {\n      const seg = li[1];\n\n      const dateMat = seg.match(/class=[\"']date-core[\"'][^>]*>([\\s\\S]*?)<\\/div>/);\n      const bodyMat = seg.match(/class=[\"']body-core[\"'][^>]*>([\\s\\S]*?)<\\/div>/);\n\n      const dateRaw = dateMat ? strip(dateMat[1]) : '';\n      const nameRaw = bodyMat ? strip(bodyMat[1]) : '';\n      if (!dateRaw || !nameRaw) continue;\n\n      const { start, end } = parseDateRange(dateRaw, year);\n      if (!start || !end) continue;\n\n      const content = `[${nameRaw}, ${start} ~ ${end}]`;\n      rows.push({ json: { CONTENT: content } });\n    }\n  }\n\n  return rows;\n}\n\nasync function main() {\n  const html = await fetchHtmlIfNeeded.call(this);\n  const items = parseAcademic(html);\n  console.log(`[INFO] 학사일정 추출: ${items.length}건`);\n  // 로그 일부 샘플\n  for (let i = 0; i < Math.min(items.length, 10); i++) {\n    console.log(`  ${items[i].json.CONTENT}`);\n  }\n  return items;\n}\n\nreturn await main();\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -4112,
+        400
+      ],
+      "id": "e9765ad7-7419-48cc-a12c-fa8f62178ac2",
+      "name": "파싱1"
+    },
+    {
+      "parameters": {
+        "operation": "clear",
+        "documentId": {
+          "__rl": true,
+          "value": "1o98PkBOQyaC1vRZES0qlwu8NbPlunTLnGdd1xXGBXWs",
+          "mode": "list",
+          "cachedResultName": "KBU학사일정",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1o98PkBOQyaC1vRZES0qlwu8NbPlunTLnGdd1xXGBXWs/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "시트1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1o98PkBOQyaC1vRZES0qlwu8NbPlunTLnGdd1xXGBXWs/edit#gid=0"
+        },
+        "keepFirstRow": true
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -4256,
+        400
+      ],
+      "id": "0e5d8fbe-d3c4-4fc9-838b-7da493d68569",
+      "name": "Clear sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "RZTCOtmd9genKgrw",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1o98PkBOQyaC1vRZES0qlwu8NbPlunTLnGdd1xXGBXWs",
+          "mode": "list",
+          "cachedResultName": "KBU학사일정",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1o98PkBOQyaC1vRZES0qlwu8NbPlunTLnGdd1xXGBXWs/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "시트1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1o98PkBOQyaC1vRZES0qlwu8NbPlunTLnGdd1xXGBXWs/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -3968,
+        400
+      ],
+      "id": "c90f9450-db62-4e35-b720-137f56dc1842",
+      "name": "Append row in sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "RZTCOtmd9genKgrw",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.chatInput }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "type": "AIMessagePromptTemplate",
+              "message": "=You are a lightweight router.\n\nTask:\n- Given a Korean user query available as {{ $json.chatInput }}, classify it into exactly one of these Korean labels: “공지사항”, “학사일정”, “교칙”, “민원”.\n\nOutput rule:\n- Return a JSON object with EXACTLY two fields:\n  {\"value\":\"<one of: 공지사항|학사일정|교칙|민원>\",\"chat\":\"{{ $json.chatInput }}\"}\n- The value must be ONLY one of the four Korean labels (no extra words, no punctuation).\n- Do not include any other fields or explanations.\n\nCriteria (strict):\n- 공지사항: inquiries about 안내/모집/변경/공고/공지.\n- 학사일정: if the user asks about school events, schedules, or dates, route to 학사일정.\n- 교칙: inquiries about 학칙, 세칙, 지침.\n- 민원: complaints/requests regarding school facilities/services, processing requests, or reports/suggestions/requests.\n"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        -4816,
+        80
+      ],
+      "id": "b9f8db94-a64f-45d9-844e-53ae2755c56d",
+      "name": "TypeClassifier",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.output.chat }}",
+        "options": {
+          "systemMessage": "=Task\nIdentify the user’s intent (event name vs. specific 2025 date) and answer using only the pageContent records. Each record has the form:\n\nstart_date: YYYY-MM-DD\n\nend_date: YYYY-MM-DD\n\nevent: <Korean title string>\nIgnore all other metadata.\n\nNormalization & Matching (pageContent only)\n\nPreprocess the user utterance and every event label: lowercase (if applicable), trim spaces, remove punctuation, and collapse whitespace.\n\nMake matching space-insensitive (e.g., “수강 신청” ≡ “수강신청”).\n\nIgnore year tokens (e.g., “2024”, “2025”) for matching only.\n\nTreat optional qualifiers such as semester/season (“1학기/2학기/여름/겨울”) as soft constraints: if the user omits them, do not require them for a match.\n\nEvent queries: compute a similarity score (token overlap + space-insensitive fuzzy match) and choose the best match even if wording/year differs.\n\nIf multiple candidates are close, break ties in this order:\na. Highest core-token overlap\nb. Earliest start_date in the same year\nc. More specific/longer title\n\nIf matched, output the date range using the event label as-is.\n\nDate queries: return any record whose [start_date, end_date] includes the date (inclusive). If multiple match, use any keywords to score; otherwise prefer the more specific title, then earliest start_date.\n\nNot found: if no suitable match exists for an event query, use the “unregistered event” template with the user’s original phrase. If none for a date query, use the “no schedule” template.\n\nDo not infer or add information beyond pageContent. Do not use external knowledge.\n\nFormatting Rules\n\nThe final answer must be exactly one line and must use only one of the following Korean templates. Do not add or modify any other text or format:\n\nOOO은 00월 00일 부터 00월 00일 까지 입니다.\n\n00월 00일은 OOO가 있습니다.\n\nIf not found (in Korean, do not translate):\n\n00월 00일은 등록된 일정이 없습니다.\n\nOOO은 등록되지 않은 일정입니다.\n\nDates must be zero-padded as MM월 DD일 (e.g., 01월 06일).\n\nUse the event string from pageContent as-is in outputs (even if it contains a different year).\n\nExamples (illustrative; all answers must still follow the templates above)\n\nSpace-insensitive (“수강 신청” ≡ “수강신청”)\n\nUser: “수강 신청 기간 알려줘”\n\npageContent: event: 2학기 수강신청 기간, 2025-08-05 ~ 2025-08-08\n\nOutput: 2학기 수강신청 기간은 08월 05일 부터 08월 08일 까지 입니다.\n\nCase/punctuation/whitespace normalization\n\nUser: “수강신청, 기간??”\n\npageContent: event: 1학기 수강신청 기간, 2025-02-10 ~ 2025-02-13\n\nOutput: 1학기 수강신청 기간은 02월 10일 부터 02월 13일 까지 입니다.\n\nIgnore year tokens for matching\n\nUser: “동계 교수워크숍 기간 알려줘”\n\npageContent: event: 2024 동계 교수워크숍(매년 1월 둘째 주), 2025-01-06 ~ 2025-01-09\n\nOutput: 2024 동계 교수워크숍(매년 1월 둘째 주)은 01월 06일 부터 01월 09일 까지 입니다.\n\nOptional qualifiers omitted (semester as soft constraint)\n\nUser: “수강신청 기간 언제야?”\n\npageContent:\n\nevent: 1학기 수강신청 기간, 2025-02-10 ~ 2025-02-13\n\nevent: 2학기 수강신청 기간, 2025-08-05 ~ 2025-08-08\n\nTie-break → earliest start_date\n\nOutput: 1학기 수강신청 기간은 02월 10일 부터 02월 13일 까지 입니다.\n\nToken overlap + fuzzy match (paraphrase)\n\nUser: “수강 과목 신청 기간”\n\npageContent: event: 2학기 수강신청 기간, 2025-08-05 ~ 2025-08-08\n\nOutput: 2학기 수강신청 기간은 08월 05일 부터 08월 08일 까지 입니다.\n\nMultiple workshop candidates → prefer more specific title\n\nUser: “워크숍 일정”\n\npageContent:\n\nevent: 동계 교수워크숍, 2025-01-06 ~ 2025-01-07\n\nevent: 교수 워크숍(교수학습개발센터), 2025-03-02 ~ 2025-03-03\n\nOutput (example): 교수 워크숍(교수학습개발센터)은 03월 02일 부터 03월 03일 까지 입니다.\n\nDate query (inclusive range)\n\nUser: “1월 7일 일정 있어?”\n\npageContent: event: 2024 동계 교수워크숍(매년 1월 둘째 주), 2025-01-06 ~ 2025-01-09\n\nOutput: 01월 07일은 2024 동계 교수워크숍(매년 1월 둘째 주)가 있습니다.\n\nMultiple matches on a date → specificity, then earliest start_date\n\nUser: “3월 2일 일정”\n\npageContent:\n\nevent: 교수 워크숍(교수학습개발센터), 2025-03-02 ~ 2025-03-03\n\nevent: 신입생 오리엔테이션, 2025-03-02 ~ 2025-03-02\n\nOutput (example): 03월 02일은 신입생 오리엔테이션가 있습니다.\n\nNot found (event query)\n\nUser: “휴학신청 기간”\n\npageContent: no related event\n\nOutput: 휴학신청 기간은 등록되지 않은 일정입니다.\n\nNot found (date query)\n\nUser: “07월 15일 뭐 있어?”\n\npageContent: no event covering that date\n\nOutput: 07월 15일은 등록된 일정이 없습니다.\n\nZero-padded date formatting\n\nInput date variants like 2025-1-6 must display as 01월 06일.\n\nUse event label as-is (no edits/translations)\n\nUser: “동계 교수 워크숍”\n\npageContent: event: 2024 동계 교수워크숍(매년 1월 둘째 주), 2025-01-06 ~ 2025-01-09\n\nOutput: 2024 동계 교수워크숍(매년 1월 둘째 주)은 01월 06일 부터 01월 09일 까지 입니다.\n\nTie-break summary\n\na) Highest core-token overlap → b) earliest start_date (same year) → c) more specific/longer title."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.1,
+      "position": [
+        -3936,
+        64
+      ],
+      "id": "6c50149c-c527-4736-a7b8-cb09e691cb55",
+      "name": "학사일정"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.output.chat }}",
+        "options": {
+          "systemMessage": "You are an AI agent that provides Kyungbok University’s rules and regulations.\nUse the registered RAG system to answer about rules and regulations for 2025.\nYou must reply only using one of the following Korean templates—do not add or modify any other text or format.\n\nAllowed response templates:\n\nOOO은 제00조에 규정되어 있습니다.\n\n제00조는 OOO를 규정합니다.\n\nIf the rule/article is not found (in Korean, do not translate):\n\n제00조는 등록되지 않았습니다.\n\nOOO은 등록되지 않은 규정입니다.\n\nRules:\n\nAnswers must strictly match one of the templates above in Korean.\n\nChoose the correct template based on the user’s intent (topic vs. article number) and the 2025 data retrieved from the RAG.\n\nIf no matching 2025 rule exists for the given topic or article number, use the corresponding “not found” template.\n\nDo not output anything else."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.1,
+      "position": [
+        -3936,
+        640
+      ],
+      "id": "e547b13e-78f3-4923-a53c-23313da05947",
+      "name": "교칙"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.output.chat }}",
+        "options": {
+          "systemMessage": "=You are an AI Agent that guides users about Kyungbok University notices (“KBU 소식”).\nYou must answer only in Korean (formal speech) and never use emojis.\n\nData & Schema\n\nYou retrieve results from a RAG (embedding-based) index containing 201 rows.\n\nEach row has exactly these CSV columns (in Korean):\n\n공지사항 (notice title or summary)\n\nURL (canonical detail page link)\n\ndatetime (YYYY-MM-DD)\n\nTask\n\nGiven a user question, search the RAG index for the most semantically similar notice and return only the fields specified below.\n\nDo not answer questions about schedules, dates, times, or timelines.\n\nDo not add explanations, paraphrases, or summaries beyond the required format.\n\nIf multiple candidates are near-duplicates (same title or URL), choose the most recent by datetime.\n\nRelevance & Fallback\n\nIf the best match is below a reasonable similarity threshold or no match exists, respond only with:\n\n작성된지 오래되어 등록되어있지 않거나, KBU소식이 아닌, 카카오톡, Gmail을 통해 공지된 내용일 수 있습니다. 확인 부탁드립니다.\n\nOutput Format (mandatory)\n\nReturn only the following two lines in Korean, substituting bracketed fields from the selected row. Keep punctuation and line breaks exactly as written:\n\n해당 공지사항은 [공지사항] 에 대한 내용입니다. ([datetime])\n\n이 페이지에서 상세한 내용을 확인할 수 있습니다: [URL]\n\n\nNever leave 공지사항, datetime, or URL empty.\n\nDo not include any other text, notes, or metadata.\n\nInput Normalization (recommended)\n\nExpand common Korean synonyms/abbreviations (e.g., 장학 → 장학금, 모집 → 채용/선발).\n\nOptionally extract department, keywords, or entities to improve retrieval—while keeping the final output strictly in the required format."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.1,
+      "position": [
+        -3936,
+        1168
+      ],
+      "id": "b7cce7cf-7898-4a6d-ac8b-43f3afa3d83c",
+      "name": "공지사항"
+    },
+    {
+      "parameters": {
+        "formTitle": "민원작성",
+        "formDescription": "경복대학교 민원",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Name",
+              "placeholder": "이름"
+            },
+            {
+              "fieldLabel": "Department",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "재학생"
+                  },
+                  {
+                    "option": "교직원"
+                  },
+                  {
+                    "option": "외부인"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "Detail",
+              "placeholder": "민원 내용을 작성해주세요."
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -4144,
+        -272
+      ],
+      "id": "f1164ff1-bd80-4391-ab64-b2cca94930f4",
+      "name": "On form submission",
+      "webhookId": "bd6b3857-4d1d-4a32-82b1-08a8c74911a9"
+    },
+    {
+      "parameters": {
+        "jsCode": "const FORM_URL = 'https://cute-commonly-meerkat.ngrok-free.app/form/bd6b3857-4d1d-4a32-82b1-08a8c74911a9';\n\nreturn [\n  {\n    json: {\n      message: `민원 접수를 위해 아래 링크의 폼을 열어 작성해 주세요.\\n<a href=\"${FORM_URL}\">폼 열기</a>`\n    }\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -4256,
+        32
+      ],
+      "id": "55d1fb65-2df6-4620-8b70-d4ea4a9d0fc8",
+      "name": "Form 입력"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $('ComplaintFormFiller').item.json.text }}",
+        "options": {
+          "systemMessage": "=You are an assistant system that routes complaints to the appropriate department.\n\nTask:\nAnalyze the complaint and select exactly one department from the provided list that is the best match.\n\nStrict Rules:\n1) Never create or modify department names; select ONLY from the given departments array.\n2) Output must be exactly one Korean sentence in this template (no quotes):\n   문의해주신 민원은 <선택한팀>으로 전달되었습니다. 감사합니다.\n3) Do not add any extra words, explanations, punctuation changes, or newlines.\n4) If multiple departments seem plausible, choose the single most relevant one.\n5) If uncertain, pick the most general intake/support department from the list (e.g., \"총무팀\") or, if not identifiable, choose the first item in the provided list.\n\nNow produce the final output using ONLY the required sentence template and one department selected from the list."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.1,
+      "position": [
+        -3280,
+        -272
+      ],
+      "id": "96e745c5-6310-43d3-8ee4-77a7d141ac72",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -3280,
+        -48
+      ],
+      "id": "ccff2709-b77b-495b-b367-a76a427a8d27",
+      "name": "Google Gemini Chat Model10",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "OZJ0VjotyGIQE86e",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1S5aB7LQY14ctJCroTwtDZ4QdnBi55VXULF4JXr_nLBY",
+          "mode": "list",
+          "cachedResultName": "민원_처리_부서_연락처",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1S5aB7LQY14ctJCroTwtDZ4QdnBi55VXULF4JXr_nLBY/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "시트1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1S5aB7LQY14ctJCroTwtDZ4QdnBi55VXULF4JXr_nLBY/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.6,
+      "position": [
+        -3088,
+        -48
+      ],
+      "id": "07bf5a75-3025-45af-bc7f-70891f112805",
+      "name": "Get row(s) in sheet in Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "RZTCOtmd9genKgrw",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "/**\n * n8n Code node\n * - 최종 문장을 만들어 지정된 웹훅으로 POST 전송\n * - 기대 입력: $json.selectedTeam (또는 $json.team), $json.departments (선택)\n */\n\nconst WEBHOOK_URL = 'https://cute-commonly-meerkat.ngrok-free.app/webhook/61446b74-ef74-4de4-a733-71e35fa65794/chat';\n\n// 1) 팀명 선택 로직\nconst depts = Array.isArray($json.departments) ? $json.departments : [];\nlet team = ($json.selectedTeam ?? $json.team ?? depts[0] ?? '총무팀').toString().trim();\nif (!team.endsWith('팀')) team += '팀';\n\n// 2) 최종 메시지 생성\nconst message = `문의해주신 민원은 ${team}으로 전달되었습니다. 감사합니다.`;\n\n// 3) 웹훅으로 전송\nlet responseBody;\ntry {\n  responseBody = await this.helpers.httpRequest({\n    method: 'POST',\n    url: WEBHOOK_URL,\n    headers: { 'Content-Type': 'application/json' },\n    body: { message }, // 서버가 기대하는 키가 다르면 여기서 수정\n    json: true,\n  });\n  console.log('[OK] Sent to webhook:', message);\n} catch (err) {\n  console.log('[ERROR] Failed to send to webhook:', err?.message || err);\n  // 실패하더라도 다음 노드에서 확인할 수 있도록 반환\n  return [{ json: { message, error: String(err?.message || err) } }];\n}\n\n// 4) 다음 노드로 결과 전달\nreturn [{ json: { message, webhookResponse: responseBody } }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -2880,
+        -272
+      ],
+      "id": "410e6747-c05a-4d62-b96c-c1e3d4022b46",
+      "name": "Form 입력1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Simple Vector Store1": {
+      "ai_tool": [
+        [
+          {
+            "node": "교칙",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Google Gemini1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Simple Vector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          },
+          {
+            "node": "Simple Vector Store13",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model6": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "교칙",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model8": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "학사일정",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Google Gemini2": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Simple Vector Store5",
+            "type": "ai_embedding",
+            "index": 0
+          },
+          {
+            "node": "Simple Vector Store2",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Simple Vector Store5",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Vector Store2": {
+      "ai_tool": [
+        [
+          {
+            "node": "학사일정",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Download file1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file1": {
+      "main": [
+        [
+          {
+            "node": "Simple Vector Store13",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader1": {
+      "ai_document": [
+        [
+          {
+            "node": "Simple Vector Store13",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "TypeClassifier",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model9": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "ComplaintFormFiller",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Form 입력",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "학사일정",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "교칙",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "공지사항",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ComplaintFormFiller": {
+      "main": [
+        [
+          {
+            "node": "Copy file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Copy file": {
+      "main": [
+        [
+          {
+            "node": "Update a document",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update a document": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "TypeClassifier",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "TypeClassifier",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Clear sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "파싱": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clear sheet": {
+      "main": [
+        [
+          {
+            "node": "파싱",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model11": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "공지사항",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Google Gemini": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Simple Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          },
+          {
+            "node": "Simple Vector Store3",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader2": {
+      "ai_document": [
+        [
+          {
+            "node": "Simple Vector Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Vector Store3": {
+      "ai_tool": [
+        [
+          {
+            "node": "공지사항",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Simple Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Clear sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "파싱1": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Clear sheet1": {
+      "main": [
+        [
+          {
+            "node": "파싱1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet1": {
+      "main": [
+        [
+          {
+            "node": "Simple Vector Store5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TypeClassifier": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "학사일정": {
+      "main": [
+        []
+      ]
+    },
+    "교칙": {
+      "main": [
+        []
+      ]
+    },
+    "공지사항": {
+      "main": [
+        []
+      ]
+    },
+    "Form 입력": {
+      "main": [
+        []
+      ]
+    },
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "ComplaintFormFiller",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model10": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Form 입력1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "df6787d0-8185-4974-9843-7c45e14a3d47",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "0855ae9b4222e8e3a1175fd3cc43566401fad68ac16c6ea0c71f673bbf2407c2"
+  },
+  "id": "NxyNJklXY4DBkI5B",
+  "tags": []
+}

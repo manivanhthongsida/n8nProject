@@ -15,10 +15,10 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
       "typeVersion": 1.3,
       "position": [
-        -3840,
-        832
+        480,
+        -592
       ],
-      "id": "e6015238-e17c-4073-900d-7d0d1a4a33d4",
+      "id": "72583ec5-d713-4cc7-a8b5-934d7969329c",
       "name": "Simple Vector Store1"
     },
     {
@@ -26,14 +26,14 @@
       "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
       "typeVersion": 1,
       "position": [
-        -3840,
-        1072
+        480,
+        -352
       ],
-      "id": "10693ca0-687a-491b-b723-fe39f9b638e5",
+      "id": "4b99416e-d5c1-4742-bad4-9126c9db26e9",
       "name": "Embeddings Google Gemini1",
       "credentials": {
         "googlePalmApi": {
-          "id": "OZJ0VjotyGIQE86e",
+          "id": "AKTtsvs6aMoUOWUC",
           "name": "Google Gemini(PaLM) Api account"
         }
       }
@@ -45,14 +45,14 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        -3936,
-        784
+        384,
+        -640
       ],
-      "id": "9da68a0f-fe0b-4005-b079-4d1dae5b86c4",
+      "id": "aaf6fd26-5f8e-4dee-a0d3-ffeca675f8bd",
       "name": "Google Gemini Chat Model6",
       "credentials": {
         "googlePalmApi": {
-          "id": "OZJ0VjotyGIQE86e",
+          "id": "AKTtsvs6aMoUOWUC",
           "name": "Google Gemini(PaLM) Api account"
         }
       }
@@ -64,14 +64,14 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        -3936,
-        208
+        384,
+        -1216
       ],
-      "id": "9279993a-6b60-4c43-928a-2fabb5e17666",
+      "id": "13ce4040-b864-4e3b-9710-b0e9b78364a1",
       "name": "Google Gemini Chat Model8",
       "credentials": {
         "googlePalmApi": {
-          "id": "OZJ0VjotyGIQE86e",
+          "id": "AKTtsvs6aMoUOWUC",
           "name": "Google Gemini(PaLM) Api account"
         }
       }
@@ -81,14 +81,14 @@
       "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
       "typeVersion": 1,
       "position": [
-        -3840,
-        512
+        480,
+        -912
       ],
-      "id": "9c7feeb5-a67b-4852-bf4f-f2fbff5625bb",
+      "id": "a18f45db-d512-4c26-ab56-937d51c9b310",
       "name": "Embeddings Google Gemini2",
       "credentials": {
         "googlePalmApi": {
-          "id": "OZJ0VjotyGIQE86e",
+          "id": "AKTtsvs6aMoUOWUC",
           "name": "Google Gemini(PaLM) Api account"
         }
       }
@@ -108,10 +108,10 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
       "typeVersion": 1.3,
       "position": [
-        -3728,
-        400
+        608,
+        -1024
       ],
-      "id": "3075c136-526e-4acb-afc2-f98ba2eb25d2",
+      "id": "6fb20873-40c6-4f5e-b8a5-1dbde3705467",
       "name": "Simple Vector Store5"
     },
     {
@@ -121,10 +121,10 @@
       "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
       "typeVersion": 1.1,
       "position": [
-        -3664,
-        592
+        720,
+        -880
       ],
-      "id": "e0a8767e-86e8-489e-9e3b-78abfaa29622",
+      "id": "8eaded5c-e8d9-4a4d-a29e-17893eca17e6",
       "name": "Default Data Loader"
     },
     {
@@ -141,10 +141,10 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
       "typeVersion": 1.3,
       "position": [
-        -3840,
-        288
+        480,
+        -1136
       ],
-      "id": "d8acd00d-2afe-459f-bc4f-d1b2402b609e",
+      "id": "9705a528-4de1-418e-bc5b-e19e84824797",
       "name": "Simple Vector Store2"
     },
     {
@@ -169,14 +169,14 @@
       "type": "n8n-nodes-base.googleDriveTrigger",
       "typeVersion": 1,
       "position": [
-        -4160,
-        960
+        160,
+        -464
       ],
-      "id": "b40d86e9-0437-4441-b6d7-f4ba567eb36d",
+      "id": "0b983e55-d320-41a7-bb4a-d302fbe373c1",
       "name": "Google Drive Trigger1",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "FeMM9hJgOMRheaVP",
+          "id": "3QgOl8ukwdAcIEuE",
           "name": "Google Drive account"
         }
       }
@@ -186,10 +186,10 @@
         "operation": "download",
         "fileId": {
           "__rl": true,
-          "value": "1iGi-8304h7uGux7yCXhTLIfz2hOq2pcX",
+          "value": "10bHH1qquMzjC6GGFhBf6yJ5gAduJi7C0",
           "mode": "list",
-          "cachedResultName": "경복대학교_학칙.csv",
-          "cachedResultUrl": "https://drive.google.com/file/d/1iGi-8304h7uGux7yCXhTLIfz2hOq2pcX/view?usp=drivesdk"
+          "cachedResultName": "경복대학교_학칙_최신조항.csv",
+          "cachedResultUrl": "https://drive.google.com/file/d/10bHH1qquMzjC6GGFhBf6yJ5gAduJi7C0/view?usp=drivesdk"
         },
         "options": {
           "fileName": "data"
@@ -198,16 +198,16 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        -3936,
-        960
+        384,
+        -464
       ],
-      "id": "7189e0b1-917b-4bac-8263-906ba42f4965",
+      "id": "019ccffa-b7e4-48db-9903-c9a592fbfb1a",
       "name": "Download file1",
       "alwaysOutputData": true,
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "FeMM9hJgOMRheaVP",
-          "name": "Google Drive account"
+          "id": "plQPHrfdkYm1JayY",
+          "name": "Google Drive account 3"
         }
       }
     },
@@ -226,10 +226,10 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
       "typeVersion": 1.3,
       "position": [
-        -3616,
-        960
+        704,
+        -464
       ],
-      "id": "76de42af-e117-40cc-bb5d-124c93e19ee4",
+      "id": "001cca97-5e88-4bf1-b40f-ea3028417cfc",
       "name": "Simple Vector Store13"
     },
     {
@@ -241,10 +241,10 @@
       "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
       "typeVersion": 1.1,
       "position": [
-        -3552,
-        1168
+        768,
+        -256
       ],
-      "id": "5429fbad-9432-4bec-9820-8c33edf93485",
+      "id": "40b5d8b7-6f1a-4e32-9ea8-3b27c76f97c8",
       "name": "Default Data Loader1"
     },
     {
@@ -254,14 +254,14 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        -4816,
-        448
+        -496,
+        -976
       ],
-      "id": "0e2464d0-0da6-45a6-9012-555a3f68586f",
+      "id": "49238c51-34c1-4cb4-b233-1cd6370e3c11",
       "name": "Google Gemini Chat Model",
       "credentials": {
         "googlePalmApi": {
-          "id": "OZJ0VjotyGIQE86e",
+          "id": "AKTtsvs6aMoUOWUC",
           "name": "Google Gemini(PaLM) Api account"
         }
       }
@@ -273,14 +273,14 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        -3952,
-        -80
+        368,
+        -1504
       ],
-      "id": "0a0ed581-194d-449c-8215-51b0d8f84561",
+      "id": "a56dedd7-4631-4a62-8486-41a6737fa730",
       "name": "Google Gemini Chat Model9",
       "credentials": {
         "googlePalmApi": {
-          "id": "OZJ0VjotyGIQE86e",
+          "id": "AKTtsvs6aMoUOWUC",
           "name": "Google Gemini(PaLM) Api account"
         }
       }
@@ -384,10 +384,10 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 3.2,
       "position": [
-        -4464,
-        48
+        -144,
+        -1376
       ],
-      "id": "18a270a2-01c9-4dfb-b2c5-ddd3dd4a15db",
+      "id": "30318fc5-fa20-4a0f-af52-01960e49d86b",
       "name": "Switch",
       "alwaysOutputData": false
     },
@@ -407,10 +407,10 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        -3952,
-        -272
+        368,
+        -1696
       ],
-      "id": "64add9e3-efc2-4bbb-9b0a-49219cb672e7",
+      "id": "1a123dc8-3e65-4f8e-8418-743513496a02",
       "name": "ComplaintFormFiller",
       "alwaysOutputData": true
     },
@@ -419,10 +419,10 @@
         "operation": "copy",
         "fileId": {
           "__rl": true,
-          "value": "17xZhKwfxpVSls-tuLC7lYzKiQqvqzT1x3WLvugzoeUg",
+          "value": "1Qbaxk2hoeAhy0VnuFq6KKcOBnkxobz8SC24CCnalDmU",
           "mode": "list",
           "cachedResultName": "민원_신청서_템플릿",
-          "cachedResultUrl": "https://docs.google.com/document/d/17xZhKwfxpVSls-tuLC7lYzKiQqvqzT1x3WLvugzoeUg/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/document/d/1Qbaxk2hoeAhy0VnuFq6KKcOBnkxobz8SC24CCnalDmU/edit?usp=drivesdk"
         },
         "name": "=[민원]_[{{ $('On form submission').item.json.Department }}_{{ $('On form submission').item.json.Name }}]",
         "options": {}
@@ -430,16 +430,16 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        -3632,
-        -272
+        688,
+        -1696
       ],
-      "id": "1f8743de-28f6-460d-8051-6867fc760192",
+      "id": "094a6823-a4ef-47d5-aa1b-72fc2c292edf",
       "name": "Copy file",
       "alwaysOutputData": true,
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "FeMM9hJgOMRheaVP",
-          "name": "Google Drive account"
+          "id": "bdyGGskwWAr0HppT",
+          "name": "Google Drive account 2"
         }
       }
     },
@@ -463,7 +463,7 @@
             },
             {
               "action": "replaceAll",
-              "text": "<<Details>>",
+              "text": "<<detail>>",
               "replaceText": "={{ $('On form submission').item.json.Detail }}",
               "matchCase": true
             },
@@ -478,16 +478,16 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        -3488,
-        -272
+        832,
+        -1696
       ],
-      "id": "676e150b-3865-4db1-ad93-2aa449f82d34",
+      "id": "eec5e093-f9f5-4bba-a25e-e3e8088ef462",
       "name": "Update a document",
       "alwaysOutputData": true,
       "credentials": {
         "googleDocsOAuth2Api": {
-          "id": "opnPUufoLGqpPYSA",
-          "name": "Google Docs account"
+          "id": "KJwKxpqhtzPsa2sQ",
+          "name": "Google Docs account 2"
         }
       }
     },
@@ -499,10 +499,10 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        -4736,
-        304
+        -416,
+        -1120
       ],
-      "id": "58e7564d-6ea9-49cb-8f7a-0c04e1e51f4a",
+      "id": "00fbe975-ef3d-4ffa-8b0f-f065b1ad8178",
       "name": "Structured Output Parser"
     },
     {
@@ -513,10 +513,10 @@
       "type": "@n8n/n8n-nodes-langchain.chatTrigger",
       "typeVersion": 1.1,
       "position": [
-        -5024,
-        80
+        -704,
+        -1344
       ],
-      "id": "8f0ecfc3-727e-4f2b-aa86-968e88c6b429",
+      "id": "8b8b0a3d-992a-4e3f-a87f-8071544d506a",
       "name": "When chat message received",
       "webhookId": "61446b74-ef74-4de4-a733-71e35fa65794",
       "notesInFlow": false
@@ -532,10 +532,10 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -4544,
-        1488
+        -224,
+        64
       ],
-      "id": "5093a9e1-a040-4d9d-b2d8-e3f4c83d9341",
+      "id": "95b519e3-65ee-461b-87c5-b6e0c946870e",
       "name": "Schedule Trigger"
     },
     {
@@ -545,10 +545,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -4240,
-        1488
+        80,
+        64
       ],
-      "id": "6f40057c-e662-437d-8cd6-89c61e8fc9dd",
+      "id": "e647e753-b90d-40d5-922f-e6f9d1365e07",
       "name": "파싱"
     },
     {
@@ -556,32 +556,31 @@
         "operation": "clear",
         "documentId": {
           "__rl": true,
-          "value": "1OK_84WFlzgSgNMMDGU4yTmyfDzXsmekEA-B2QNUSC5k",
+          "value": "1gW22zPohzYy42eRdtGgn4hImvYWqHF7qhzpShTQIYoA",
           "mode": "list",
           "cachedResultName": "KBU소식",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1OK_84WFlzgSgNMMDGU4yTmyfDzXsmekEA-B2QNUSC5k/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1gW22zPohzYy42eRdtGgn4hImvYWqHF7qhzpShTQIYoA/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
           "cachedResultName": "시트1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1OK_84WFlzgSgNMMDGU4yTmyfDzXsmekEA-B2QNUSC5k/edit#gid=0"
-        },
-        "keepFirstRow": true
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1gW22zPohzYy42eRdtGgn4hImvYWqHF7qhzpShTQIYoA/edit#gid=0"
+        }
       },
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        -4384,
-        1488
+        -64,
+        64
       ],
-      "id": "abf0c379-5b9b-4c27-a107-c3e41bc5e5af",
+      "id": "c5ddddba-9c3d-4b07-9595-c706ceeaa9b8",
       "name": "Clear sheet",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "RZTCOtmd9genKgrw",
-          "name": "Google Sheets account"
+          "id": "RF2x0pHVd0r470PB",
+          "name": "Google Sheets account 3"
         }
       }
     },
@@ -590,46 +589,28 @@
         "operation": "append",
         "documentId": {
           "__rl": true,
-          "value": "1OK_84WFlzgSgNMMDGU4yTmyfDzXsmekEA-B2QNUSC5k",
+          "value": "1gW22zPohzYy42eRdtGgn4hImvYWqHF7qhzpShTQIYoA",
           "mode": "list",
           "cachedResultName": "KBU소식",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1OK_84WFlzgSgNMMDGU4yTmyfDzXsmekEA-B2QNUSC5k/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1gW22zPohzYy42eRdtGgn4hImvYWqHF7qhzpShTQIYoA/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
           "cachedResultName": "시트1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1OK_84WFlzgSgNMMDGU4yTmyfDzXsmekEA-B2QNUSC5k/edit#gid=0"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1gW22zPohzYy42eRdtGgn4hImvYWqHF7qhzpShTQIYoA/edit#gid=0"
         },
         "columns": {
           "mappingMode": "autoMapInputData",
           "value": {},
-          "matchingColumns": [],
+          "matchingColumns": [
+            "CONTENT"
+          ],
           "schema": [
             {
-              "id": "공지사항",
-              "displayName": "공지사항",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "URL",
-              "displayName": "URL",
-              "required": false,
-              "defaultMatch": false,
-              "display": true,
-              "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
-            },
-            {
-              "id": "datetime",
-              "displayName": "datetime",
+              "id": "CONTENT",
+              "displayName": "CONTENT",
               "required": false,
               "defaultMatch": false,
               "display": true,
@@ -646,15 +627,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        -4096,
-        1488
+        224,
+        64
       ],
-      "id": "68888817-31c9-4e25-b41b-ccb7076b3787",
+      "id": "58f8cad8-79c3-45f1-8cb0-f92c6acfbbf6",
       "name": "Append row in sheet",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "RZTCOtmd9genKgrw",
-          "name": "Google Sheets account"
+          "id": "RF2x0pHVd0r470PB",
+          "name": "Google Sheets account 3"
         }
       }
     },
@@ -665,14 +646,14 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        -3936,
-        1312
+        384,
+        -112
       ],
-      "id": "5366e372-c2f4-4c8d-87b0-c12d89b5fcb5",
+      "id": "1c15b59a-b22f-4f42-a93d-d8b80636046c",
       "name": "Google Gemini Chat Model11",
       "credentials": {
         "googlePalmApi": {
-          "id": "OZJ0VjotyGIQE86e",
+          "id": "AKTtsvs6aMoUOWUC",
           "name": "Google Gemini(PaLM) Api account"
         }
       }
@@ -682,14 +663,14 @@
       "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
       "typeVersion": 1,
       "position": [
-        -3840,
-        1616
+        480,
+        192
       ],
-      "id": "673411bd-b76a-48eb-9f50-48e7dced3766",
+      "id": "aec50828-9a84-46bf-a1b6-830a813c5111",
       "name": "Embeddings Google Gemini",
       "credentials": {
         "googlePalmApi": {
-          "id": "OZJ0VjotyGIQE86e",
+          "id": "AKTtsvs6aMoUOWUC",
           "name": "Google Gemini(PaLM) Api account"
         }
       }
@@ -709,10 +690,10 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
       "typeVersion": 1.3,
       "position": [
-        -3632,
-        1488
+        688,
+        64
       ],
-      "id": "379a6ffd-6153-402c-8a50-7a94a6bd62bc",
+      "id": "0961fb47-dc02-46b7-8f03-65d9f9e2f487",
       "name": "Simple Vector Store"
     },
     {
@@ -722,10 +703,10 @@
       "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
       "typeVersion": 1.1,
       "position": [
-        -3568,
-        1728
+        752,
+        304
       ],
-      "id": "1395e43f-1ad0-4cc1-8136-2af98c288d30",
+      "id": "24bf943e-f686-4d90-9488-f87a3e053450",
       "name": "Default Data Loader2"
     },
     {
@@ -743,10 +724,10 @@
       "type": "@n8n/n8n-nodes-langchain.vectorStoreInMemory",
       "typeVersion": 1.3,
       "position": [
-        -3840,
-        1392
+        480,
+        -32
       ],
-      "id": "f39d7a95-95a1-42c9-a4f7-5b2c74bd87bb",
+      "id": "06fb4fee-7190-4f46-be29-6cefbb7e5fbd",
       "name": "Simple Vector Store3"
     },
     {
@@ -760,10 +741,10 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -4416,
-        400
+        -96,
+        -1024
       ],
-      "id": "b204261b-7b15-4111-a8ed-3f6624dcdc92",
+      "id": "0c36ffe3-5d51-46b1-ac6a-d4d943169b68",
       "name": "Schedule Trigger1"
     },
     {
@@ -773,10 +754,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -4112,
-        400
+        208,
+        -1024
       ],
-      "id": "e9765ad7-7419-48cc-a12c-fa8f62178ac2",
+      "id": "275e72b3-12ab-43b7-a611-d396ad825e09",
       "name": "파싱1"
     },
     {
@@ -784,32 +765,31 @@
         "operation": "clear",
         "documentId": {
           "__rl": true,
-          "value": "1o98PkBOQyaC1vRZES0qlwu8NbPlunTLnGdd1xXGBXWs",
+          "value": "1thSZ5xx9j4ph8AALB29SaOAX5d_5rGsBwPyrWoiOU0I",
           "mode": "list",
           "cachedResultName": "KBU학사일정",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1o98PkBOQyaC1vRZES0qlwu8NbPlunTLnGdd1xXGBXWs/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1thSZ5xx9j4ph8AALB29SaOAX5d_5rGsBwPyrWoiOU0I/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
           "cachedResultName": "시트1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1o98PkBOQyaC1vRZES0qlwu8NbPlunTLnGdd1xXGBXWs/edit#gid=0"
-        },
-        "keepFirstRow": true
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1thSZ5xx9j4ph8AALB29SaOAX5d_5rGsBwPyrWoiOU0I/edit#gid=0"
+        }
       },
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        -4256,
-        400
+        64,
+        -1024
       ],
-      "id": "0e5d8fbe-d3c4-4fc9-838b-7da493d68569",
+      "id": "48757054-f7fa-42e9-a4fb-fb5b8a69902e",
       "name": "Clear sheet1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "RZTCOtmd9genKgrw",
-          "name": "Google Sheets account"
+          "id": "qt5jChVFDf9fx4eJ",
+          "name": "Google Sheets account 4"
         }
       }
     },
@@ -818,23 +798,36 @@
         "operation": "append",
         "documentId": {
           "__rl": true,
-          "value": "1o98PkBOQyaC1vRZES0qlwu8NbPlunTLnGdd1xXGBXWs",
+          "value": "1thSZ5xx9j4ph8AALB29SaOAX5d_5rGsBwPyrWoiOU0I",
           "mode": "list",
           "cachedResultName": "KBU학사일정",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1o98PkBOQyaC1vRZES0qlwu8NbPlunTLnGdd1xXGBXWs/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1thSZ5xx9j4ph8AALB29SaOAX5d_5rGsBwPyrWoiOU0I/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
           "cachedResultName": "시트1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1o98PkBOQyaC1vRZES0qlwu8NbPlunTLnGdd1xXGBXWs/edit#gid=0"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1thSZ5xx9j4ph8AALB29SaOAX5d_5rGsBwPyrWoiOU0I/edit#gid=0"
         },
         "columns": {
           "mappingMode": "autoMapInputData",
           "value": {},
-          "matchingColumns": [],
-          "schema": [],
+          "matchingColumns": [
+            "CONTENT"
+          ],
+          "schema": [
+            {
+              "id": "CONTENT",
+              "displayName": "CONTENT",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
           "attemptToConvertTypes": false,
           "convertFieldsToString": false
         },
@@ -843,15 +836,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        -3968,
-        400
+        352,
+        -1024
       ],
-      "id": "c90f9450-db62-4e35-b720-137f56dc1842",
+      "id": "f1c12ce5-fa4d-4e58-b449-f5cd8313cdd8",
       "name": "Append row in sheet1",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "RZTCOtmd9genKgrw",
-          "name": "Google Sheets account"
+          "id": "qt5jChVFDf9fx4eJ",
+          "name": "Google Sheets account 4"
         }
       }
     },
@@ -873,10 +866,10 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.7,
       "position": [
-        -4816,
-        80
+        -496,
+        -1344
       ],
-      "id": "b9f8db94-a64f-45d9-844e-53ae2755c56d",
+      "id": "0a45ea62-f88d-4070-bdb8-c02bdac185e8",
       "name": "TypeClassifier",
       "alwaysOutputData": false
     },
@@ -891,10 +884,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.1,
       "position": [
-        -3936,
-        64
+        384,
+        -1360
       ],
-      "id": "6c50149c-c527-4736-a7b8-cb09e691cb55",
+      "id": "a5cb8849-4fdf-490d-8c3c-e65be6b695b7",
       "name": "학사일정"
     },
     {
@@ -908,10 +901,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.1,
       "position": [
-        -3936,
-        640
+        384,
+        -784
       ],
-      "id": "e547b13e-78f3-4923-a53c-23313da05947",
+      "id": "d037a5b0-0cac-41ef-8612-811d2c759eb6",
       "name": "교칙"
     },
     {
@@ -925,10 +918,10 @@
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.1,
       "position": [
-        -3936,
-        1168
+        416,
+        -240
       ],
-      "id": "b7cce7cf-7898-4a6d-ac8b-43f3afa3d83c",
+      "id": "167c17d2-e525-496f-a268-374ced136bf9",
       "name": "공지사항"
     },
     {
@@ -969,24 +962,24 @@
       "type": "n8n-nodes-base.formTrigger",
       "typeVersion": 2.2,
       "position": [
-        -4144,
-        -272
+        176,
+        -1696
       ],
-      "id": "f1164ff1-bd80-4391-ab64-b2cca94930f4",
+      "id": "0001eb28-3b9d-40b1-ae92-6ddecd16f95c",
       "name": "On form submission",
       "webhookId": "bd6b3857-4d1d-4a32-82b1-08a8c74911a9"
     },
     {
       "parameters": {
-        "jsCode": "const FORM_URL = 'https://cute-commonly-meerkat.ngrok-free.app/form/bd6b3857-4d1d-4a32-82b1-08a8c74911a9';\n\nreturn [\n  {\n    json: {\n      message: `민원 접수를 위해 아래 링크의 폼을 열어 작성해 주세요.\\n<a href=\"${FORM_URL}\">폼 열기</a>`\n    }\n  }\n];\n"
+        "jsCode": "const FORM_URL = 'http://localhost:5678/form-test/bd6b3857-4d1d-4a32-82b1-08a8c74911a9';\n\nreturn [\n  {\n    json: {\n      message: `민원 접수를 위해 아래 링크의 폼을 열어 작성해 주세요.\\n\\n[폼 열기](${FORM_URL})`\n    }\n  }\n];\n\n"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -4256,
-        32
+        80,
+        -1440
       ],
-      "id": "55d1fb65-2df6-4620-8b70-d4ea4a9d0fc8",
+      "id": "b92974e4-3790-4e7d-98fa-00b66a6e1618",
       "name": "Form 입력"
     },
     {
@@ -994,16 +987,16 @@
         "promptType": "define",
         "text": "={{ $('ComplaintFormFiller').item.json.text }}",
         "options": {
-          "systemMessage": "=You are an assistant system that routes complaints to the appropriate department.\n\nTask:\nAnalyze the complaint and select exactly one department from the provided list that is the best match.\n\nStrict Rules:\n1) Never create or modify department names; select ONLY from the given departments array.\n2) Output must be exactly one Korean sentence in this template (no quotes):\n   문의해주신 민원은 <선택한팀>으로 전달되었습니다. 감사합니다.\n3) Do not add any extra words, explanations, punctuation changes, or newlines.\n4) If multiple departments seem plausible, choose the single most relevant one.\n5) If uncertain, pick the most general intake/support department from the list (e.g., \"총무팀\") or, if not identifiable, choose the first item in the provided list.\n\nNow produce the final output using ONLY the required sentence template and one department selected from the list."
+          "systemMessage": "=You are an assistant system that routes complaints to the appropriate department.\n\nYou have access to the following tool:\nTool Name: Google Sheets Tool\nPurpose: Retrieve the list of departments and their contact emails from the linked Google Sheet.\nInput: A query about the complaint content.\nOutput: The list of department names and related emails.\n\nInstructions:\n1. When a new complaint is received, first call the Google Sheets Tool to retrieve the list of departments and their emails.\n2. Analyze the complaint content and select exactly one department from the retrieved list that best matches the subject of the complaint.\n3. After selecting the department, respond in the exact sentence format below (in Korean):\n\n문의해주신 민원은 <선택한팀>으로 전달되었습니다. 감사합니다.\n\nRules:\n- Never invent or modify department names; select only from the retrieved list.\n- Do not include any explanations, English text, punctuation changes, or newlines.\n- If multiple departments are possible, pick the most relevant one.\n- If uncertain, choose the most general support team (예: \"총무팀\") or, if not identifiable, choose the first item in the list.\n\nAfter selecting the department, trigger the Google Sheets Tool again (if supported) or the connected email workflow to send the updated Google Docs file to the department’s email.\n"
         }
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 2.1,
       "position": [
-        -3280,
-        -272
+        1040,
+        -1696
       ],
-      "id": "96e745c5-6310-43d3-8ee4-77a7d141ac72",
+      "id": "79abd5f8-2daf-4ea0-85d5-713424ddb1e9",
       "name": "AI Agent"
     },
     {
@@ -1013,14 +1006,14 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
       "position": [
-        -3280,
-        -48
+        1040,
+        -1472
       ],
-      "id": "ccff2709-b77b-495b-b367-a76a427a8d27",
+      "id": "c44706fc-73ad-48a2-bf47-b3fa9e86bc8e",
       "name": "Google Gemini Chat Model10",
       "credentials": {
         "googlePalmApi": {
-          "id": "OZJ0VjotyGIQE86e",
+          "id": "AKTtsvs6aMoUOWUC",
           "name": "Google Gemini(PaLM) Api account"
         }
       }
@@ -1029,47 +1022,103 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1S5aB7LQY14ctJCroTwtDZ4QdnBi55VXULF4JXr_nLBY",
+          "value": "1VRcq2cxavYBjoY-aL7AVqHPe4DQakcVK7SABh7UjlhM",
           "mode": "list",
           "cachedResultName": "민원_처리_부서_연락처",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1S5aB7LQY14ctJCroTwtDZ4QdnBi55VXULF4JXr_nLBY/edit?usp=drivesdk"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1VRcq2cxavYBjoY-aL7AVqHPe4DQakcVK7SABh7UjlhM/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
           "cachedResultName": "시트1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1S5aB7LQY14ctJCroTwtDZ4QdnBi55VXULF4JXr_nLBY/edit#gid=0"
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1VRcq2cxavYBjoY-aL7AVqHPe4DQakcVK7SABh7UjlhM/edit#gid=0"
         },
         "options": {}
       },
       "type": "n8n-nodes-base.googleSheetsTool",
       "typeVersion": 4.6,
       "position": [
-        -3088,
-        -48
+        1232,
+        -1472
       ],
-      "id": "07bf5a75-3025-45af-bc7f-70891f112805",
+      "id": "3bca92bc-520a-4e06-b401-6cdadb5e2e07",
       "name": "Get row(s) in sheet in Google Sheets",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "RZTCOtmd9genKgrw",
-          "name": "Google Sheets account"
+          "id": "RF2x0pHVd0r470PB",
+          "name": "Google Sheets account 3"
         }
       }
     },
     {
       "parameters": {
-        "jsCode": "/**\n * n8n Code node\n * - 최종 문장을 만들어 지정된 웹훅으로 POST 전송\n * - 기대 입력: $json.selectedTeam (또는 $json.team), $json.departments (선택)\n */\n\nconst WEBHOOK_URL = 'https://cute-commonly-meerkat.ngrok-free.app/webhook/61446b74-ef74-4de4-a733-71e35fa65794/chat';\n\n// 1) 팀명 선택 로직\nconst depts = Array.isArray($json.departments) ? $json.departments : [];\nlet team = ($json.selectedTeam ?? $json.team ?? depts[0] ?? '총무팀').toString().trim();\nif (!team.endsWith('팀')) team += '팀';\n\n// 2) 최종 메시지 생성\nconst message = `문의해주신 민원은 ${team}으로 전달되었습니다. 감사합니다.`;\n\n// 3) 웹훅으로 전송\nlet responseBody;\ntry {\n  responseBody = await this.helpers.httpRequest({\n    method: 'POST',\n    url: WEBHOOK_URL,\n    headers: { 'Content-Type': 'application/json' },\n    body: { message }, // 서버가 기대하는 키가 다르면 여기서 수정\n    json: true,\n  });\n  console.log('[OK] Sent to webhook:', message);\n} catch (err) {\n  console.log('[ERROR] Failed to send to webhook:', err?.message || err);\n  // 실패하더라도 다음 노드에서 확인할 수 있도록 반환\n  return [{ json: { message, error: String(err?.message || err) } }];\n}\n\n// 4) 다음 노드로 결과 전달\nreturn [{ json: { message, webhookResponse: responseBody } }];\n"
+        "jsCode": "/**\n * n8n Code node\n * - AI 결과에서 팀명 추출 → 최종 문장 생성 → 지정된 웹훅으로 POST 전송\n * - 다음 노드(Google Sheets 또는 Gmail)에서 team 값을 사용할 수 있도록 반환\n */\n\nconst WEBHOOK_URL = 'http://localhost:5678/webhook/61446b74-ef74-4de4-a733-71e35fa65794/chat';\n\n// ----------------------------\n// 1) 팀명 추출 로직\n// ----------------------------\n\n// AI Agent가 반환한 문장 (예: \"문의해주신 민원은 시설관리팀으로 전달되었습니다. 감사합니다.\")\nconst rawMessage = $json.message || $json.text || \"\";\n\nlet team = $json.selectedTeam ?? $json.team ?? null;\n\n// 정규식으로 문장 속 팀명 자동 추출\nif (!team) {\n  const match = rawMessage.match(/문의해주신\\s*민원은\\s*(.*?)으로\\s*전달되었습니다/);\n  team = match ? match[1].trim() : null;\n}\n\n// 기본값 설정\nif (!team) team = '총무팀';\nif (!team.endsWith('팀')) team += '팀';\n\n// ----------------------------\n// 2) 최종 메시지 생성\n// ----------------------------\nconst message = `문의해주신 민원은 ${team}으로 전달되었습니다. 감사합니다.`;\n\n// ----------------------------\n// 3) 웹훅으로 전송\n// ----------------------------\nlet responseBody;\ntry {\n  responseBody = await this.helpers.httpRequest({\n    method: 'POST',\n    url: WEBHOOK_URL,\n    headers: { 'Content-Type': 'application/json' },\n    body: { message },\n    json: true,\n  });\n  console.log('[OK] Sent to webhook:', message);\n} catch (err) {\n  console.log('[ERROR] Failed to send to webhook:', err?.message || err);\n  // 실패하더라도 다음 노드에서 확인 가능하도록 반환\n  return [\n    {\n      json: {\n        message,\n        team,\n        error: String(err?.message || err),\n      },\n    },\n  ];\n}\n\n// ----------------------------\n// 4) 다음 노드(Google Sheets, Gmail 등)에 전달할 데이터 반환\n// ----------------------------\nreturn [\n  {\n    json: {\n      team, // Gmail node에서 부서명으로 이메일 조회 가능\n      message,\n      webhookResponse: responseBody,\n    },\n  },\n];\n"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -2880,
-        -272
+        1440,
+        -1696
       ],
-      "id": "410e6747-c05a-4d62-b96c-c1e3d4022b46",
+      "id": "b890287b-f09c-4ce8-9fa1-b2d9f5504c38",
       "name": "Form 입력1"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1VRcq2cxavYBjoY-aL7AVqHPe4DQakcVK7SABh7UjlhM",
+          "mode": "list",
+          "cachedResultName": "민원_처리_부서_연락처",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1VRcq2cxavYBjoY-aL7AVqHPe4DQakcVK7SABh7UjlhM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "시트1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1VRcq2cxavYBjoY-aL7AVqHPe4DQakcVK7SABh7UjlhM/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1648,
+        -1696
+      ],
+      "id": "fbf17532-ac76-48f6-9584-a1ad2a6267f7",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "qt5jChVFDf9fx4eJ",
+          "name": "Google Sheets account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json['이메일 (Email)'] }}",
+        "subject": "새 민원 접수 알림",
+        "message": "=안녕하세요,  \n새로운 민원이 접수되었습니다.  \n\n학생명: {{ $('AI Agent').item.json.Name }}\n학과: {{ $('AI Agent').item.json.Department }}\n\n민원 내용은 아래 문서에서 확인 가능합니다:\nhttps://docs.google.com/document/d/{{ $('Update a document').item.json.documentId }}\n\n감사합니다.\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1856,
+        -1696
+      ],
+      "id": "910e705a-b4eb-4da3-a82f-b3f5485f73fc",
+      "name": "Send a message",
+      "webhookId": "f03c117d-1bd5-4ef7-9659-493044a7bd87",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "8uqlT6RLbJ7qjDlU",
+          "name": "Gmail account 6"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -1456,26 +1505,6 @@
         ]
       ]
     },
-    "학사일정": {
-      "main": [
-        []
-      ]
-    },
-    "교칙": {
-      "main": [
-        []
-      ]
-    },
-    "공지사항": {
-      "main": [
-        []
-      ]
-    },
-    "Form 입력": {
-      "main": [
-        []
-      ]
-    },
     "On form submission": {
       "main": [
         [
@@ -1519,17 +1548,39 @@
           }
         ]
       ]
+    },
+    "Form 입력1": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "df6787d0-8185-4974-9843-7c45e14a3d47",
+  "versionId": "6ed709be-8e13-4798-be13-ddbf21a8faf8",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "0855ae9b4222e8e3a1175fd3cc43566401fad68ac16c6ea0c71f673bbf2407c2"
+    "instanceId": "79d4ffa1870a4ad59e67f42f09d45229874dca9a51778719766c62fc59eb674a"
   },
-  "id": "NxyNJklXY4DBkI5B",
+  "id": "6CtZihAYH3NrjBxK",
   "tags": []
 }
